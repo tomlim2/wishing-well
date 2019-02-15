@@ -70,6 +70,8 @@ class App extends Component {
     this.setWisdom(wisdoms.length-1);
   }
 
+
+
   setRandomWisdom() {
     var index = Math.floor(Math.random() * wisdoms.length);
 
@@ -87,14 +89,23 @@ class App extends Component {
   addWisdom() {
     // ask for wisdom
     var wisdom = prompt("What new wisdom do you offer?");
-    var author = prompt("Who is author?");
-
-    // if there's no name set, ask for name
-    if (! this.state.name) {
+    var author
+    if (! author) {
+      var author = prompt("Who is author?");
       this.setState({
-        name: prompt("What is your name?")
+        name: author,
+        // name: prompt("What is your name??")
       });
     }
+
+    // if there's no name set, ask for name
+    // if (! this.state.name) {
+    //   var author = prompt("Who is author?");
+    //   this.setState({
+    //     name: author,
+    //     // name: prompt("What is your name??")
+    //   });
+    // }
 
     // make a message object
     var message = {
@@ -126,14 +137,21 @@ class App extends Component {
     wisdoms.splice(index, 1);
   }
 
+  addLike(){
+    // this.state.wisdom;
+  }
+
   render() {
     return (
       <div className="App">
         {this.state.wisdom}
+        &mdash;
         <div className="author">
         {this.state.author}
         </div>
         <button className="more" onClick={this.setRandomWisdom}>Another</button>
+        <button className="more like" onClick={this.addLike}>like</button>
+
         <button className="new-wisdom" onClick={this.addWisdom}>New</button>
 
         <div className="lastListItems">

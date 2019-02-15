@@ -23,8 +23,15 @@
   cursor: pointer;
   display: block;
 }
+.like {
+  margin-top: 10px;
+  background: red;
+}
 .more:hover {
   background: #00aa00;
+}
+.like:hover {
+  background: pink;
 }
 
 .new-wisdom {
